@@ -1,11 +1,13 @@
 import heapq
+import math
 from BaseGraph import BaseGraph
 from GraphADT import GraphADT
 
 class AStarGraph(GraphADT, BaseGraph):
     def heuristic(self, node, goal):
-        # Implement the heuristic function, e.g., Euclidean distance
-        return 0
+        (x1, y1) = node
+        (x2, y2) = goal
+        return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
     def a_star(self, start, goal):
         open_set = []
